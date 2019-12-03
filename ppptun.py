@@ -15,7 +15,6 @@ class ppptun:
     print("PPP tunnel")
     self.uart = UART(1)
     self.uart.init(baudrate=115200, bits=8, parity=None, stop=1)
-    #self.init_pinout_sd()
     self.ppp = PPP(self.uart)
     self.ppp.ifconfig(('192.168.48.4', '255.255.255.0', '192.168.48.254', '8.8.8.8'))
     self.ppp.active(True)
