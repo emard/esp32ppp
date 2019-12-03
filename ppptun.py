@@ -19,10 +19,10 @@ class ppptun:
     self.ppp.ifconfig(('192.168.48.4', '255.255.255.0', '192.168.48.254', '8.8.8.8'))
     self.ppp.active(True)
     self.ppp.connect()
-    sleep_ms(10000)
 
   def demo(self):
     print("demo")
+    sleep_ms(10000)
 
 
 def demo():
