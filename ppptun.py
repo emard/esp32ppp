@@ -19,7 +19,7 @@ class ppptun:
     #  assign ftdi_rxd = wifi_gpio16 & wifi_gpio17; // echo ESP32 to FTDI, should be half duplex
     self.uart.init(baudrate=115200, bits=8, parity=None, stop=1)
     self.ppp = PPP(self.uart)
-    self.ppp.ifconfig(('192.168.48.4', '255.255.255.0', '192.168.48.254', '8.8.8.8'))
+    #self.ppp.ifconfig(('192.168.48.4', '255.255.255.0', '192.168.48.254', '8.8.8.8'))
     self.ppp.active(True)
     self.ppp.connect()
 
@@ -34,4 +34,6 @@ def demo():
   del t
 
 print("usage:")
-print("ppptun.demo()")
+print("p=ppptun.ppptun()")
+print("... PPP traffic at RX=GPIO16, TX=GPIO17")
+print("del p")
