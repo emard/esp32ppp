@@ -26,7 +26,7 @@ set DIP SW1=OFF: ESP32 should show some PPP packets.
 
 disconnect terminal "screen /dev/ttyUSB0 115200"
 
-    Ctrl-A Ctrl-\
+    Ctrl-A \
 
 ("\\" on my keyboard is Right AltGr-Q)
 
