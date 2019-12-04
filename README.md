@@ -13,6 +13,6 @@ serial where PPP traffic is.
 From linux side, this command will connect:
 
     stty -F /dev/ttyUSB0 raw
-    pppd /dev/ttyUSB0 115200 10.0.5.2:10.0.5.1 noauth local debug dump defaultroute nocrtscts
+    pppd /dev/ttyUSB0 115200 10.0.5.2:10.0.5.1 noauth local debug dump defaultroute nocrtscts nodetach
 
 More details on [Linux PPP setup](https://www.instructables.com/id/Connect-the-Raspberry-Pi-to-network-using-UART)
