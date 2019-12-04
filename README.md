@@ -8,7 +8,9 @@ Linux PPP daemon will connect with this
 
 I suggest to have DIP switch alternate between passthru
 to default ESP32 serial where the prompt is and this secondary
-serial where PPP traffic is.
+serial where PPP traffic is. At ULX3S there's modified passthru
+
+    TOP_MODULE_FILE = ../../rtl/ulx3s_v20_passthru_serial2.vhd
 
 From linux side, this command will connect:
 
