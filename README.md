@@ -30,7 +30,7 @@ disconnect terminal "screen /dev/ttyUSB0 115200"
 
 ("\\" on my keyboard is Right AltGr-Q)
 
-and run this command from linux side (prepare it in a script):
+and run this command as linux root user (prepare it in a script):
 
     stty -F /dev/ttyUSB0 raw
     pppd /dev/ttyUSB0 115200 10.0.5.2:10.0.5.1 noauth local debug dump defaultroute nocrtscts nodetach
