@@ -62,4 +62,7 @@ If ESP32 is running FTP server you can connect there:
     -rw-r--r-- 1 owner group         14 Jan  1 07:38 webrepl_cfg.py
     ...
 
+I haven't yet verified will ESP32 route PPP traffic and provide internet
+online but that's the direction we're going to ...
+
 More details on [Linux PPP setup](https://www.instructables.com/id/Connect-the-Raspberry-Pi-to-network-using-UART)
