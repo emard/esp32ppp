@@ -49,12 +49,17 @@ it should print something like this as successful connect:
 
 If ESP32 is running FTP server you can connect there:
 
-    ftp 10.0.5.
+    ftp 10.0.5.1
     Connected to 10.0.5.1.
     220 Hello, this is the ESP8266.
     230 Logged in.
     Remote system type is UNIX.
     Using binary mode to transfer files.
-    ftp> 
+    ftp> ls
+    200 OK
+    150 Directory listing:
+    -rw-r--r-- 1 owner group        137 Jan  1 00:01 boot.py
+    -rw-r--r-- 1 owner group         14 Jan  1 07:38 webrepl_cfg.py
+    ...
 
 More details on [Linux PPP setup](https://www.instructables.com/id/Connect-the-Raspberry-Pi-to-network-using-UART)
