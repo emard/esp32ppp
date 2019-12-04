@@ -1,5 +1,11 @@
 # esp32ppp
 
+[Paul Ruiz recompiled micropython with IP forwarding enabled](https://gitlab.com/pnru/ulx3s-misc/blob/master/upython/upython_pnr5.bin)
+
+    #define IP_FORWARD 1
+
+Load this to ESP32 first.
+
 Linux PPP daemon will connect with this
 (needs some modified passthru for GPIO 16=RX 17=TX
 
@@ -62,7 +68,15 @@ If ESP32 is running FTP server you can connect there:
     -rw-r--r-- 1 owner group         14 Jan  1 07:38 webrepl_cfg.py
     ...
 
-I haven't yet verified will ESP32 route PPP traffic and provide internet
-online but that's the direction we're going to ...
-
 More details on [Linux PPP setup](https://www.instructables.com/id/Connect-the-Raspberry-Pi-to-network-using-UART)
+
+ESP32 will route PPP traffic but can't do NAT so some static
+routes are required for the computer connected to ESP32 PPP:
+
+    route add default gw 10.0.5.1
+
+and route for the other computer on WiFi network which needs to know how to return
+packet back to ESP32. Assume ESP32 has been assigned WiFi address 192.168.28.118:
+
+    route add -host 10.0.5.2 gw 192.168.28.118
+
