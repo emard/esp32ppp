@@ -80,3 +80,7 @@ packet back to ESP32. Assume ESP32 has been assigned WiFi address 192.168.28.118
 
     route add -host 10.0.5.2 gw 192.168.28.118
 
+ESP32 has no NAT but linux can use IPIP or GRE kernel module
+to get full featured internet access. Howto is here:
+
+[Linux tunnels](https://developers.redhat.com/blog/2019/05/17/an-introduction-to-linux-virtual-interfaces-tunnels/)
