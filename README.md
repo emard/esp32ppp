@@ -80,6 +80,13 @@ packet back to ESP32. Assume ESP32 has been assigned WiFi address 192.168.28.118
 
     route add -host 10.0.5.2 gw 192.168.28.118
 
+remote linux on LAN can be used to provide internet access by activating
+its masquerade option:
+
+    echo 1 > /proc/sys/net/ipv4/ip_forward
+    iptables --table nat --append POSTROUTING -s 10.0.5.2 -j MASQUERADE
+    iptables --append FORWARD -d 10.0.5.2 -j ACCEPT
+
 ESP32 has no NAT but linux can use IPIP or GRE kernel module
 to get full featured internet access. Howto is here:
 
