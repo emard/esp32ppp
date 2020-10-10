@@ -91,3 +91,25 @@ ESP32 has no NAT but linux can use IPIP or GRE kernel module
 to get full featured internet access. Howto is here:
 
 [Linux tunnels](https://developers.redhat.com/blog/2019/05/17/an-introduction-to-linux-virtual-interfaces-tunnels/)
+
+# SOCKS server
+
+KOST released [socks server for
+micropython](https://github.com/kost/micropython-socks)
+that means you can tunnel any SOCKS5 connection over ESP32
+since micropython does not come with NAT support, that means you can go to the internet over ESP32 using SOCKS server.
+Installation is simple if you have connected ESP32 already to the internet:
+You have to run this on ulx3s repl shell:
+
+    import upip
+    upip.install('micropython-socks')
+
+and then you can just simply say:
+
+    import socks
+    socks.start()
+
+it will start listening on 0.0.0.0:1080 for SOCKS5 connections.
+Then you can simply from SaxonSoc test it with the following (or any other host):
+
+    curl --socks5 192.168.4.1:1080 http://ifconfig.co
