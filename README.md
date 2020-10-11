@@ -53,13 +53,13 @@ This should also work but currently there's some problem at esp32 socks proxy
 
 Load this to ESP32 first.
 
-Linux PPP daemon can connect to secondary serial port of
+Linux can connect to secondary serial port of
 ESP32 where PPP traffic will be active.
 
     output wire wifi_gpio16, // RX input on ESP32
     input  wire wifi_gpio17, // TX output on ESP32
 
-This willa activate PPP:
+This will activate PPP:
 
     >>> import ppptun
     >>> p=ppptun.ppptun()
