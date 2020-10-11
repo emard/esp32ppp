@@ -53,40 +53,27 @@ This should also work but currently there's some problem at esp32 socks proxy
 
 Load this to ESP32 first.
 
-Linux PPP daemon will connect with this
-(needs some modified passthru for GPIO 16=RX 17=TX
+Linux PPP daemon can connect to secondary serial port of
+ESP32 where PPP traffic will be active.
 
     output wire wifi_gpio16, // RX input on ESP32
     input  wire wifi_gpio17, // TX output on ESP32
 
-I suggest to have DIP switch alternate between passthru
-to default ESP32 serial where the prompt is and this secondary
-serial where PPP traffic is. At ULX3S there's modified passthru
-
-    TOP_MODULE_FILE = ../../rtl/ulx3s_v20_passthru_serial2.vhd
-
-set DIP SW1=ON: ESP32 python prompt:
-
-    screen /dev/ttyUSB0
+This willa activate PPP:
 
     >>> import ppptun
     >>> p=ppptun.ppptun()
 
-Now you have cca 15 seconds to connect. Don't rush, there's enough time to:
-set DIP SW1=OFF: ESP32 should show some PPP packets.
+Now we have cca 15 seconds to connect.
+ESP32 should start PPP packets on serial line
+which look like this:
 
     ~�}#�!}!}!} }4}"}&} } } } }%}&y��#}'}"}(}"b\~
 
-disconnect terminal "screen /dev/ttyUSB0 115200"
+run this command as linux root user (prepare it in a script):
 
-    Ctrl-A \
-
-("\\" on my keyboard is Right AltGr-Q)
-
-and run this command as linux root user (prepare it in a script):
-
-    stty -F /dev/ttyUSB0 raw
-    pppd /dev/ttyUSB0 115200 10.0.5.2:10.0.5.1 noauth local debug dump defaultroute nocrtscts nodetach
+    stty -F /dev/ttySL0 raw
+    pppd /dev/ttySL0 115200 10.0.5.2:10.0.5.1 noauth local debug dump defaultroute nocrtscts nodetach
 
 it should print something like this as successful connect:
 
