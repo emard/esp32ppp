@@ -1,16 +1,14 @@
 # micropython ESP32
 # PPP tunnel
 
-# stty -F /dev/ttyUSB0 raw
-# pppd /dev/ttyUSB0 115200 10.0.5.2:10.0.5.1 noauth local debug dump nodefaultroute nocrtscts nodetach
+# stty -F /dev/ttySL0 raw
+# pppd /dev/ttySL0 115200 10.0.5.2:10.0.5.1 noauth local debug dump nodefaultroute nocrtscts nodetach
 
 # AUTHOR=EMARD
 # LICENSE=BSD
 
-from time import sleep_ms
 from machine import UART
 from network import PPP
-from micropython import const
 
 class ppptun:
 
