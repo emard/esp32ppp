@@ -13,7 +13,7 @@ it will just give prompt, if not some some error will appear.
     from ntptime import settime
     settime()
 
-ESP32 PPP has a limited time about 10 seconds that it tries to connect with linux
+ESP32 PPP has limited time (about 10 seconds) when it tries to connect with linux
 and then it will give up. So in practice we power up board with autostart
 scripts. ESP32 autostart script first waits 1 minute and then starts ppp, wifi, uftpd, socks, in this order.
 Saxonsoc linux boots about 50 seconds and then it runs autostart scripts
