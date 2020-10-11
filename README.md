@@ -30,6 +30,11 @@ interface:
 
     ifconfig
 
+    4: ppp0: <POINTOPOINT,MULTICAST,NOARP,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast qlen 3
+       link/ppp 
+       inet 10.0.5.2 peer 10.0.5.1/32 scope global ppp0
+          valid_lft forever preferred_lft forever
+
 
 # Micropython compiled with IP forward
 
