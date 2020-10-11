@@ -38,6 +38,8 @@ interface:
               collisions:0 txqueuelen:3 
               RX bytes:90 (90.0 B)  TX bytes:58 (58.0 B)
 
+    curl --socks5 10.0.5.1:1080 http://87.248.100.216/index.html
+    ... webpage should be printed to stdout ...
 
 # Micropython compiled with IP forward
 
@@ -153,4 +155,4 @@ and then you can just simply say:
 it will start listening on 0.0.0.0:1080 for SOCKS5 connections.
 Then you can simply from SaxonSoc test it with the following (or any other host):
 
-    curl --socks5 192.168.4.1:1080 http://ifconfig.co
+    curl --socks5 10.0.5.1:1080 http://87.248.100.216/index.html
