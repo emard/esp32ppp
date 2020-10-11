@@ -38,10 +38,12 @@ interface:
               collisions:0 txqueuelen:3 
               RX bytes:90 (90.0 B)  TX bytes:58 (58.0 B)
 
-    curl --socks5 10.0.5.1:1080 http://87.248.100.216/index.html
+Try getting something from internet IP with curl:
+
+    curl --proxy socks5://10.0.5.1:1080 http://87.248.100.216/index.html
     ... webpage should be printed to stdout ...
 
-This should also work but currently there's some problem at esp32 socks proxy
+Using the named host should also work:
 
     curl --proxy socks5h://10.0.5.1:1080 http://www.yahoo.com/index.html
 
