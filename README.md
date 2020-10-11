@@ -1,5 +1,34 @@
 # esp32ppp
 
+# Micropython idf3 official binary
+
+It doesn't have IP forwarding so we will use socks to connect.
+ESP32 must first active PPP and then connect to WiFi network.
+If PPP is started after WiFi, it will spoil WiFi routing.
+
+To verify that ESP32 WiFi internet routing is still working,
+we can check by trying to set NTP time. If WiFi internet (still) works
+it will just give prompt, if not some some error will appear.
+
+    from ntptime import settime
+    settime()
+
+ESP32 PPP has a limited time abot 10 that it tries to connect with linux
+and then it will give up. So in practice we power up and ESP32 first waits
+1 minute and then starts ppp, wifi, uftpd, socks, in this order.
+As soon as linux boots (after cca 50 seconds) it will start its pppd daemon
+trying to connect, ESP32 will starts also ppp and they should connect.
+
+Copy "main.py" to root of ESP32 micropython internal flash disk.
+Copy "S30ppp" to "/etc/init.d/S30ppp" at saxonsoc linux.
+Few seconds after saxonsoc boots, you should see them connected with ppp
+interface:
+
+    ifconfig
+
+
+# Micropython compiled with IP forward
+
 [Paul Ruiz recompiled micropython with IP forwarding enabled](https://gitlab.com/pnru/ulx3s-misc/blob/master/upython/upython_pnr5.bin)
 
     #define IP_FORWARD 1
