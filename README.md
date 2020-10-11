@@ -46,6 +46,7 @@ Try getting something from internet IP with curl:
 Using the named host should also work:
 
     curl --proxy socks5h://10.0.5.1:1080 http://www.yahoo.com/index.html
+    redirect
 
 # Micropython compiled with IP forward
 
