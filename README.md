@@ -30,10 +30,13 @@ interface:
 
     ifconfig
 
-    4: ppp0: <POINTOPOINT,MULTICAST,NOARP,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast qlen 3
-       link/ppp 
-       inet 10.0.5.2 peer 10.0.5.1/32 scope global ppp0
-          valid_lft forever preferred_lft forever
+    ppp0      Link encap:Point-to-Point Protocol  
+              inet addr:10.0.5.2  P-t-P:10.0.5.1  Mask:255.255.255.255
+              UP POINTOPOINT RUNNING NOARP MULTICAST  MTU:1500  Metric:1
+              RX packets:5 errors:0 dropped:0 overruns:0 frame:0
+              TX packets:4 errors:0 dropped:0 overruns:0 carrier:0
+              collisions:0 txqueuelen:3 
+              RX bytes:90 (90.0 B)  TX bytes:58 (58.0 B)
 
 
 # Micropython compiled with IP forward
