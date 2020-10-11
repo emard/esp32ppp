@@ -23,8 +23,8 @@ scripts. ESP32 autostart script first waits 1 minute and then starts ppp, wifi, 
 Saxonsoc linux boots about 50 seconds and then it runs autostart scripts
 from "/etc/init.d/", there is S30ppp which starts pppd daemon.
 
-Copy "main.py" to root of ESP32 micropython internal flash disk.
-Copy "S30ppp" to "/etc/init.d/S30ppp" at saxonsoc linux.
+Copy "main.py", "ppptun.py" and other dependencies to root of ESP32 micropython
+internal flash disk. Copy "S30ppp" to "/etc/init.d/S30ppp" at saxonsoc linux.
 Few seconds after saxonsoc boots, you should see them connected with ppp
 interface:
 
