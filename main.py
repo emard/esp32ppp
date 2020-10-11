@@ -1,5 +1,5 @@
 from time import sleep
-sleep(60)
+sleep(50)
 import ppptun
 p=ppptun.ppptun()
 from ntptime import settime

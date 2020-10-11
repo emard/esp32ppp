@@ -19,9 +19,11 @@ PPP is started after, it will spoil WiFi routing. For the same reason PPP can't
 be restarted to retry, so we have one chance in a time window to connect.
 
 In practice we power up board with autostart
-scripts. ESP32 autostart script first waits 1 minute and then starts ppp, wifi, uftpd, socks, in this order.
-Saxonsoc linux boots about 50 seconds and then it runs autostart scripts
-from "/etc/init.d/", there is S30ppp which starts pppd daemon.
+scripts. ESP32 autostart script first waits 50 seconds and then starts
+ppp, wifi, uftpd, socks, in this order.
+Saxonsoc linux bistream is writen in flash, boots about 50 seconds and
+then it runs autostart scripts from "/etc/init.d/". Script "S30ppp" starts
+pppd daemon before ethernet networking.
 
 Copy "main.py", "ppptun.py" and other dependencies to root of ESP32 micropython
 internal flash disk. Copy "S30ppp" to "/etc/init.d/S30ppp" at saxonsoc linux.
