@@ -122,6 +122,12 @@ routes are required for the computer connected to ESP32 PPP:
 
     route add default gw 10.0.5.1
 
+DNS can be set by editing file "/etc/resolv.conf"
+
+    domain lan
+    search lan
+    nameserver 192.168.28.254
+
 and route for the other computer on WiFi network which needs to know how to return
 packet back to ESP32. Assume ESP32 has been assigned WiFi address 192.168.28.118:
 
