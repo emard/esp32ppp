@@ -1,0 +1,27 @@
+#!/bin/sh
+#
+# Start the network....
+#
+
+case "$1" in
+  start)
+	printf "Starting ppp. "
+        /bin/stty -F /dev/ttySL0 raw
+        /usr/sbin/pppd /dev/ttySL0 115200 10.0.5.2:10.0.5.1 noauth local nodefaultroute nocrtscts
+        [ $? = 0 ] && echo "OK" || echo "FAIL"
+	;;
+  stop)
+	printf "Stopping ppp. "
+	/usr/bin/killall pppd
+        [ $? = 0 ] && echo "OK" || echo "FAIL"
+	;;
+  restart|reload)
+	"$0" stop
+	"$0" start
+	;;
+  *)
+	echo "Usage: $0 {start|stop|restart}"
+	exit 1
+esac
+
+exit $?
