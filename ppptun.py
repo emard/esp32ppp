@@ -18,7 +18,7 @@ class ppptun:
     #  on Linux:
     #  output wire wifi_gpio16, // RX input on ESP32
     #  input  wire wifi_gpio17, // TX output on ESP32
-    self.uart.init(baudrate=115200, bits=8, parity=None, stop=1)
+    self.uart.init(baudrate=230400, bits=8, parity=None, stop=1)
     self.ppp = PPP(self.uart)
     #self.ppp.ifconfig(('192.168.48.4', '255.255.255.0', '192.168.48.254', '8.8.8.8')) # not needed
     self.ppp.active(True)

@@ -7,7 +7,7 @@ case "$1" in
   start)
 	printf "Starting ppp. "
         /bin/stty -F /dev/ttySL0 raw
-        /usr/sbin/pppd /dev/ttySL0 115200 10.0.5.2:10.0.5.1 noauth local nodefaultroute nocrtscts
+        /usr/sbin/pppd /dev/ttySL0 230400 10.0.5.2:10.0.5.1 noauth local nodefaultroute nocrtscts
         [ $? = 0 ] && echo "OK" || echo "FAIL"
 	;;
   stop)
